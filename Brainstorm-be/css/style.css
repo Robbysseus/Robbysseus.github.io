@@ -1,3 +1,26 @@
 h1, h2, h3, p, a, li, table{
     font-family: Arial;
 }
+
+h1{
+    font-family: 'Comic Sans MS';
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+h2{
+    background-color: antiquewhite;
+}
+
+p{
+    text-align: justify;
+}
+
+table{
+    text-align: center;
+    font-size: large;
+}
+
+nav{
+    font-size: large;
+}
