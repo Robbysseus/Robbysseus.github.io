@@ -3,10 +3,11 @@ canvas{
 }
 
 h1, h2, h3, p, a, li, table{
-    font-family: Arial;
+    font-family: Arial, serif;
 }
 
 h1{
+    font-size: 200%;
     font-family: 'Comic Sans MS';
     text-align: center;
     background-color: antiquewhite;
