@@ -7,7 +7,7 @@ h1, h2, h3, p, a, li, table{
 }
 
 header, footer{
-    background-color: rgb(236, 236, 236);
+    background-color: #eee;
     line-height: 150%;
     font-size: large;
 }
@@ -32,6 +32,10 @@ p{
 table{
     text-align: center;
     font-size: large;
+}
+
+th{
+    border-bottom: 2px solid #eee;
 }
 
 nav{
