@@ -6,6 +6,12 @@ h1, h2, h3, p, a, li, table{
     font-family: Arial, serif;
 }
 
+header, footer{
+    background-color: rgb(236, 236, 236);
+    line-height: 150%;
+    font-size: large;
+}
+
 h1{
     font-size: 200%;
     font-family: 'Comic Sans MS';
@@ -29,5 +35,5 @@ table{
 }
 
 nav{
-    font-size: large;
+    font-size: larger;
 }
