@@ -1,3 +1,7 @@
+canvas{
+    color: whitesmoke;
+}
+
 h1, h2, h3, p, a, li, table{
     font-family: Arial;
 }
@@ -6,10 +10,13 @@ h1{
     font-family: 'Comic Sans MS';
     text-align: center;
     background-color: antiquewhite;
+    line-height: 200%;
 }
 
 h2{
     background-color: antiquewhite;
+    line-height: 150%;
+    text-align: ;
 }
 
 p{
