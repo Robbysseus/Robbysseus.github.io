@@ -1,27 +1,3 @@
-h1{
-    font-family: Arial;
-}
-
-h2{
-    font-family: Arial;
-}
-
-h3{
-    font-family: Arial;
-}
-
-p{
-    font-family: Arial;
-}
-
-a{
-    font-family: Arial;
-}
-
-li{
-    font-family: Arial;
-}
-
-table{
+h1, h2, h3, p, a, li, table{
     font-family: Arial;
 }
