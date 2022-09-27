@@ -8,52 +8,54 @@ h1, h2, h3, p, a, li, table{
 
 header{
     background-color: #eee;
-    line-height: 100%;
     font-size: large;
-}
-
-header{
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height: 76px;
+    height: 48px;
     border: solid 1px rgb(0, 0, 0);
-    margin: -10px -10px 0px -10px;
+    margin: -9px -10px 0px -9px;
     position: fixed;
+    z-index: 999;
 }
 
 h1{
-    font-size: 150%;
+    font-size: 170%;
     font-family: 'Comic Sans MS';
     text-align: center;
     line-height: 100%;
-    border: solid 1px rgb(0, 0, 0);
+    border: solid 1px rgba(0, 0, 0, 0);
     display: inline-block;
     width: 30%;
+    margin: 7px 0px 0px 0px;
 }
 
 img{
-    width: 200px;
-    height: 100px;
-    border: solid 1px rgb(0, 0, 0);
+    width: 120px;
+    height: 70px;
+    border: solid 1px rgba(0, 0, 0, 0);
     overflow: visible;
     display: block;
+    margin: -8px 0px -10px 0px;
 }
 
 a{
     text-decoration: none;
-    margin : 10px 5px 10px 5px;
+    margin : 8px 0px 10px 0px;
 }
 
 nav{
+    background-color: rgb(255, 238, 6);
+    width: 100%;
+    height: 36px;
     font-size: larger;
     text-align: center;
     display: flex;
     justify-content: space-around;
-    border: solid 1px rgb(0, 0, 0);
-    margin-top: 0px;
-
-    
+    border: solid 1px rgba(0, 0, 0, 1);
+    margin: 36px 0px 0px -9px;
+    position: fixed;
+    font-variant: small-caps;
 }
 
 
@@ -74,4 +76,9 @@ table{
 
 th{
     border-bottom: 2px solid #eee;
+}
+
+span{
+    display: inline-block;
+    height: 54px;
 }
