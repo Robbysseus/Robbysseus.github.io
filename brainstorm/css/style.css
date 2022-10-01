@@ -4,6 +4,7 @@ html {
     font-style: normal;
     font-weight: 300;
     font-size: large;
+    letter-spacing: 0.1rem;
 }
 body {
     margin:0;
@@ -20,20 +21,19 @@ body {
     top: 0;
     width: 100%;
     height: 44px;
-    border-bottom: solid 6px rgb(250, 250, 0);
-    box-shadow: 1px 1px rgba(40, 40, 40, 0.3);
+    border-bottom: solid 2px rgb(0, 0, 0);
+    outline: 8px solid rgb(240, 240, 0);
+    box-shadow: 0px 10px rgb(0, 0, 0);
     z-index: 99;
 }
 .navbar a {
     float: left;
-    display: inline-block;
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 11px 16px;
     text-decoration: none;
     font-weight: 550;
     font-size: x-large;
-    letter-spacing : 1.5px;
 }
 #top_left_brainstorm {
     font-family: 'Comic Sans MS';
@@ -50,13 +50,16 @@ body {
     /* color: rgb(0, 0, 0); */
 }
 /* extra navigation buttons on the right side 
-and remove when screen too small */
+and remove when screen too small (mobile) */
 #navbar_extra {
     float: right;
 }
 @media only screen and (max-width: 940px) {
     #navbar_extra {
         display: none;
+    }
+    #navbar_logo {
+        left: 83%
     }
 }
 
@@ -96,61 +99,91 @@ header {
 
 /* ------------------------------------------------ */
 
-/* main styling */
+/* main general styling */
 main {
     background-color: rgb(250, 250, 250);
     border: solid rgb(80, 80, 80);
     border-width: 2px 0px 0px 0px;
     position: relative;
-    top: 40em;
-    padding: 1em 0em 0em 0em;
+    top: 40rem;
+    padding: 1rem 0rem 0rem 0rem;
+    letter-spacing: 0.04rem;
+    word-spacing: 0.1rem;
 }
 .text_section {
-    margin: 15px 35px;
+    margin: 1rem 12rem;
     background-color: rgb(250, 250, 250);
-    border: solid 1px rgba(80, 80, 80, 0.5);
+    border: solid 1px rgba(80, 80, 80, 0.2);
     padding: 4px 16px 4px 16px;
     text-align: justify;
     border-radius: 5px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-    line-height: 130%;
+    line-height: 140%;
     font-size: large;
 }
+@media screen and (max-width: 1200px) {
+    .text_section {
+       margin: 1rem 2rem;
+    }
+  }
+
+/* to make sure hyperlinks align properly */
 .anchor{
     display:block;
     height:44px;
     margin-top:-44px;
     visibility:hidden;
  }
+
+/* main element styling */
 h2 {
+    text-align: left;
+    font-size: 2rem;
     background-color: rgba(210, 210, 210, 0.6);
-    padding: 8px;
+    padding: 1.5rem 1.2rem;
     border-radius: 5px;
+    margin: 1rem 0rem;
+    line-height: 120%;
+}
+h3 {
+    text-align: left;
+    font-size: 1.5rem;
+    margin: 2rem 0rem 1rem 0rem;
+    line-height: 120%;
+}
+.text_section p, ul {
+    font-size: 1.2rem;
+}
+address , ul{
+    text-align: left;
+}
+address a {
+    text-decoration: none;
 }
 ul {
-    line-height: 200%;
+    line-height: 150%;
 }
 table {
     width: 100%;
-    margin: 6px auto;
+    margin: 1rem auto;
+    font-size: 1.5rem;
 }
 table td, table th {
     border: 1px solid rgba(210, 210, 210, 0.6);
-    padding: 6px;
+    padding: 0.6rem;
 }
 table tr:nth-child(even){background-color: #f2f2f2;}
 table tr:hover {background-color: #ddd;}
 table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 0.7rem 0.5rem;
     text-align: left;
     background-color: rgba(200, 200, 0, 0.3);
     color: rgb(0, 0, 0);
   }
 
 iframe {
-    border: solid 1px rgba(80, 80, 80, 0.5);
-    margin-bottom: 8px;
+    border: solid 1px rgba(80, 80, 80, 0.3);
+    margin-bottom: 1rem auto;
     width: 100%;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
