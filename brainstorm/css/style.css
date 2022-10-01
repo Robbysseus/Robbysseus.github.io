@@ -73,7 +73,7 @@ header {
 .header_text {
     background-color: rgba(210, 210, 210, 0.6);
     letter-spacing : 1px;
-    padding: 12px;
+    padding: 1rem;
     text-shadow: 1px 1px 0.5px rgb(255, 255, 255), 
     -0.5px -0.5px rgb(255, 255, 255),
     0.5px -0.5px rgb(255, 255, 255),
@@ -82,14 +82,14 @@ header {
     font-style: italic;
 }
 #header_text_1 {
-    font-size: 5em;
+    font-size: 5rem;
     border-radius: 0px 8px 8px 0px;
     float: left;
     position: relative;
     top: 1em;
 }
 #header_text_2 {
-    font-size: 4em;
+    font-size: 4rem;
     text-align: right;
     border-radius: 8px 0px 0px 8px;
     float: right;
