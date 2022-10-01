@@ -129,7 +129,7 @@ main {
     line-height: 140%;
     font-size: large;
 }
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 1350px) {
     .text_section {
        margin: 1rem 10rem;
     }
