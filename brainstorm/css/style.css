@@ -1,0 +1,168 @@
+/* general styling */
+html {
+    font-family: 'Open Sans Semibold', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: large;
+}
+body {
+    margin:0;
+    min-height: 100%;
+}
+
+/* ------------------------------------------------ */
+
+/* navigation bar styling */
+.navbar {
+    overflow: visible;
+    background-color: rgb(221, 221, 221);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 44px;
+    border-bottom: solid 6px rgb(250, 250, 0);
+    box-shadow: 1px 1px rgba(40, 40, 40, 0.3);
+    z-index: 99;
+}
+.navbar a {
+    float: left;
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 11px 16px;
+    text-decoration: none;
+    font-weight: 550;
+    font-size: x-large;
+    letter-spacing : 1.5px;
+}
+#navbar_logo {
+    position: absolute;
+    left: calc((100% - 400px) / 2);
+    width: 120px;
+    margin: 2px;
+}
+.navbar a:hover {
+    background: rgba(40, 40, 40, 0.5);
+    /* color: rgb(0, 0, 0); */
+}
+/* extra navigation buttons on the right side 
+and remove when screen too small */
+#navbar_extra {
+    float: right;
+}
+@media only screen and (max-width: 940px) {
+    #navbar_extra {
+        display: none;
+    }
+}
+
+/* ------------------------------------------------ */
+
+/* header styling */
+header {
+    display: inline-block;
+    width: 100%;
+}
+.header_text {
+    background-color: rgba(210, 210, 210, 0.6);
+    letter-spacing : 1px;
+    padding: 12px;
+    text-shadow: 1px 1px 0.5px rgb(255, 255, 255), 
+    -0.5px -0.5px rgb(255, 255, 255),
+    0.5px -0.5px rgb(255, 255, 255),
+    -0.5px 0.5px rgb(255, 255, 255);
+    font-family: 'Open Sans Semibold' sans-serif;
+    font-style: italic;
+}
+#header_text_1 {
+    font-size: 5em;
+    border-radius: 0px 8px 8px 0px;
+    float: left;
+    position: relative;
+    top: 1em;
+}
+#header_text_2 {
+    font-size: 4em;
+    text-align: right;
+    border-radius: 8px 0px 0px 8px;
+    float: right;
+    position: relative;
+    top: 10.5em;
+}
+
+/* ------------------------------------------------ */
+
+/* main styling */
+main {
+    background-color: rgb(250, 250, 250);
+    border: solid rgb(80, 80, 80);
+    border-width: 50px 0px 0px 0px;
+    position: relative;
+    top: 40em;
+    padding: 1em 0em 0em 0em;
+}
+.text_section {
+    margin: 15px 35px;
+    background-color: rgb(250, 250, 250);
+    border: solid 1px rgba(80, 80, 80, 0.5);
+    padding: 4px 16px 4px 16px;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    line-height: 130%;
+    font-size: large;
+}
+.anchor{
+    display:block;
+    height:44px;
+    margin-top:-44px;
+    visibility:hidden;
+ }
+h2 {
+    background-color: rgba(210, 210, 210, 0.6);
+    padding: 8px;
+    border-radius: 5px;
+}
+ul {
+    line-height: 200%;
+}
+table {
+    width: 100%;
+    margin: 6px auto;
+}
+table td, table th {
+    border: 1px solid rgba(210, 210, 210, 0.6);
+    padding: 6px;
+}
+table tr:nth-child(even){background-color: #f2f2f2;}
+table tr:hover {background-color: #ddd;}
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgba(156, 156, 0, 0.3);
+    color: rgb(0, 0, 0);
+  }
+
+iframe {
+    border: solid 1px rgba(80, 80, 80, 0.5);
+    margin-bottom: 8px;
+    width: 100%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ------------------------------------------------ */
+
+/* footer styling */
+#footer {
+    clear: both;
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+}
+#footer p {
+    padding: 6px;
+    text-align: center;
+}
+#footer a {
+    text-decoration: none;
+}
