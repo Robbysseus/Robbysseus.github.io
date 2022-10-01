@@ -37,7 +37,7 @@ body {
 }
 #top_left_brainstorm {
     font-family: 'Comic Sans MS';
-    margin-top: -4px;
+    margin-top: -0.2rem;
 }
 #navbar_logo {
     position: absolute;
@@ -59,14 +59,15 @@ and remove when screen too small (mobile) */
         display: none;
     }
     #navbar_logo {
-        left: 82%;
-        width: 9rem;
+        left: 75%;
+        width: 12rem;
     }
     #top_left_brainstorm {
-        font-size: 2rem;
+        font-size: 3rem;
+        margin-top: 0rem;
     }
     .navbar {
-        height: 70px
+        height: 90px
     }
 }
 
@@ -221,3 +222,5 @@ iframe {
 #footer a {
     text-decoration: none;
 }
+
+/* ------------------------------------------------ */
