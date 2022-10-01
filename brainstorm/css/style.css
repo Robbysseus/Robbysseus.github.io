@@ -59,7 +59,7 @@ and remove when screen too small (mobile) */
         display: none;
     }
     #navbar_logo {
-        left: 83%
+        left: 80%
     }
 }
 
@@ -111,7 +111,7 @@ main {
     word-spacing: 0.1rem;
 }
 .text_section {
-    margin: 1rem 12rem;
+    margin: 1rem 2rem;
     background-color: rgb(250, 250, 250);
     border: solid 1px rgba(80, 80, 80, 0.2);
     padding: 4px 16px 4px 16px;
@@ -121,9 +121,9 @@ main {
     line-height: 140%;
     font-size: large;
 }
-@media screen and (max-width: 1200px) {
+@media only screen and (min-width: 1600px) {
     .text_section {
-       margin: 1rem 2rem;
+       margin: 1rem 10rem;
     }
   }
 
