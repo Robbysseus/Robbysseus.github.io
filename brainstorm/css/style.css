@@ -54,7 +54,7 @@ and remove when screen too small (mobile) */
 #navbar_extra {
     float: right;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1079px) {
     #navbar_extra {
         display: none;
     }
@@ -111,7 +111,7 @@ main {
     word-spacing: 0.1rem;
 }
 .text_section {
-    margin: 1rem 2rem;
+    margin: 1rem;
     background-color: rgb(250, 250, 250);
     border: solid 1px rgba(80, 80, 80, 0.2);
     padding: 4px 16px 4px 16px;
@@ -165,8 +165,9 @@ address , ul{
 address a {
     text-decoration: none;
 }
-ul {
-    line-height: 180%;
+ul , li {
+    line-height: 150%;
+    margin-bottom: 1rem;
 }
 table {
     width: 100%;
