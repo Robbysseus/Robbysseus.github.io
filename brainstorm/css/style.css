@@ -2,7 +2,7 @@
 html {
     font-family: 'Open Sans Semibold', sans-serif;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 2rem;
     font-size: larger;
     letter-spacing: 0.1rem;
 }
@@ -42,8 +42,8 @@ body {
 #navbar_logo {
     position: absolute;
     left: calc((100% - 400px) / 2);
-    width: 120px;
-    margin: 2px;
+    width: 6.5rem;
+    margin: 0.1rem;
 }
 .navbar a:hover {
     background: rgba(40, 40, 40, 0.5);
@@ -59,7 +59,14 @@ and remove when screen too small (mobile) */
         display: none;
     }
     #navbar_logo {
-        left: 82%
+        left: 82%;
+        width: 9rem;
+    }
+    #top_left_brainstorm {
+        font-size: 2rem;
+    }
+    .navbar {
+        height: 70px
     }
 }
 
@@ -165,8 +172,12 @@ address , ul{
 address a {
     text-decoration: none;
 }
-ul , li {
+ul {
     line-height: 150%;
+    margin-bottom: 1rem;
+}
+li {
+    line-height: 120%;
     margin-bottom: 1rem;
 }
 table {
