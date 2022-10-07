@@ -1,6 +1,6 @@
 /* general styling */
 html {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 2rem;
     font-size: larger;
@@ -86,7 +86,6 @@ header {
     -0.5px -0.5px rgb(255, 255, 255),
     0.5px -0.5px rgb(255, 255, 255),
     -0.5px 0.5px rgb(255, 255, 255);
-    font-family: 'Open Sans Semibold' sans-serif;
     font-style: italic;
 }
 #header_text_1 {
