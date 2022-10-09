@@ -11,6 +11,17 @@ body {
     min-height: 100%;
 }
 
+
+.material-symbols-outlined {
+    font-size: 60px !important;
+    font-variation-settings:'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 48;
+    display: inline-block;
+    width: 4%;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
 /* ------------------------------------------------ */
 
 /* navigation bar styling */
@@ -141,21 +152,22 @@ header {
     0.5px -0.5px rgb(255, 255, 255),
     -0.5px 0.5px rgb(255, 255, 255);
     font-style: italic;
+    font-variant: small-caps;
 }
 #header_text_1 {
-    font-size: 5rem;
+    font-size: 4rem;
     border-radius: 0px 8px 8px 0px;
     float: left;
     position: relative;
-    top: 1em;
+    top: 2em;
 }
 #header_text_2 {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: right;
     border-radius: 8px 0px 0px 8px;
     float: right;
     position: relative;
-    top: 10em;
+    top: 12em;
 }
 
 /* ------------------------------------------------ */
@@ -186,7 +198,8 @@ main {
     }
 }
 
-/* to make sure hyperlinks align properly */
+/* to make sure hyperlinks align properly 
+    for regular and mobile site */
 .anchor{
     display: block;
     height: 60px;
@@ -230,6 +243,11 @@ h3 {
 }
 address a {
     text-decoration: none;
+}
+address p {
+    display: inline-block;
+    width: 90%;
+    vertical-align: middle;
 }
 ul {
     font-size: 1.2rem;
