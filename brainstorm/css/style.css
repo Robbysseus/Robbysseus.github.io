@@ -120,8 +120,7 @@ hamburger menu only visible on mobile */
         top: 0;
     }
     .hamburger #buger_links a:hover {
-        background-color: #ddd;
-        color: black;
+        background: rgba(60, 60, 60, 0.3);
     }
 
 }
