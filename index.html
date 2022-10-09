@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang = "nl">
+
+<!-- head referencing sytlesheet -->
+<head>
+    <meta charset = "UTF-8">
+    <title>Brainstorm</title>
+    <link rel="icon" type="image/png" href="imgs/icon.png">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        body {
+            /* background-image: url("imgs/house.png"); */
+            background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4) ), url("imgs/house.png");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- desktop navigation bar on top -->
+    <div class="navbar">
+        <a id="top_left_brainstorm" href="index.html">Brainstorm</a>
+        <!-- Right-sided navigation bar links. Hiden on small screens -->
+        <div id="navbar_extra">
+            <a class ="active" href="index.html#about" >Over ons</a>
+            <a href="offer.html#offer" >Ons aanbod</a>
+            <a href="contact.html#contact" >Contact & Locatie</a>
+        </div>
+        <!-- brainstorm logo in navigation bar -->
+        <a href="index.html" id="navbar_logo">
+            <img src="imgs/logo.svg" alt="Brainstorm-studiebegeleiding logo">
+        </a>
+    </div>
+
+    <!-- hambuger menu on mobile -->
+    <div class="mobile_nav">
+        <a id="mobile_brainstorm" href="index.html">Brainstorm</a>
+
+        <div class="hamburger">
+            <script>
+                function myFunction() {
+                var x = document.getElementById("buger_links");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }}
+            </script>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <img src="imgs/logo.svg" alt="Brainstorm-studiebegeleiding logo">
+            </a>
+
+            <div id="buger_links">
+                <a class ="active" href="index.html#about" >Over ons</a>
+                <a href="offer.html#offer" >Ons aanbod</a>
+                <a href="contact.html#contact" >Contact & Locatie</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- headnings on top of picture -->
+    <header>
+        <h1 class="header_text" id="header_text_1">
+            Brainstorm
+            <br>
+            studiebegeleiding
+        </h1>
+        <h1 class="header_text" id="header_text_2">
+            Uw eerste hulp
+            <br>
+            bij ingangsexamen-stress!
+        </h1>
+    </header>
+    
+    <!-- main bulk of the page -->
+    <main>
+        <span class="anchor" id="about"></span>
+
+        <h2>
+            Over ons
+        </h2>
+
+        <div class = "text_section">
+
+            <p>
+                Brainstorm is een studiebegeleidingskantoor gelegen op de Martelaarslaan in Gent.
+                <br>
+                <br>
+                Ons team bestaat uit een 10-tal lesgevers met master diploma's 
+                in de medische en ingenieurs wetenschappen. 
+                Onze leerkrachten hebben veelal een aggregaatsdiploma 
+                en jarenlange ervaring in privé-begeleiding en het geven van groepslessen.
+            </p>
+
+            <h3>
+                Onze ervaring
+            </h3>
+
+            <p>
+                Wij hebben al meer dan 20 jaar ervaring in het begeleiden van 
+                humaniora studenten die zich willen voorbereiden op de toelatingsproef 
+                arts / tandarts. 
+                Vele van onze ex-studenten werken inmiddels al jaren als 
+                huisarts, tandarts, of specialist in ziekenhuizen over heel Vlaanderen en Nederland.
+            </p>
+        </div>
+
+        <div id="footer">
+            <p>
+                © 2022 Brainstorm | Made by <a href="https://github.com/Robbysseus">Robbysseus</a>
+            </p>
+        </div>
+    </main>
+
+</body>
+
+</html>
