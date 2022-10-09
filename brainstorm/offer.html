@@ -23,12 +23,42 @@
     <!-- desktop navigation bar on top -->
     <div class="navbar">
         <a id="top_left_brainstorm" href="index.html">Brainstorm</a>
-        <img src="imgs/logo.svg" id="navbar_logo" alt="Brainstorm-studiebegeleiding logo">
         <!-- Right-sided navigation bar links. Hiden on small screens -->
         <div id="navbar_extra">
-            <a href="index.html#about" >Over ons</a>
-            <a class = "active" href="offer.html#offer" >Ons aanbod</a>
+            <a class ="active" href="index.html#about" >Over ons</a>
+            <a href="offer.html#offer" >Ons aanbod</a>
             <a href="contact.html#contact" >Contact & Locatie</a>
+        </div>
+        <!-- brainstorm logo in navigation bar -->
+        <a href="index.html" id="navbar_logo">
+            <img src="imgs/logo.svg" alt="Brainstorm-studiebegeleiding logo">
+        </a>
+    </div>
+
+    <!-- hambuger menu on mobile -->
+    <div class="mobile_nav">
+        <a id="mobile_brainstorm" href="index.html">Brainstorm</a>
+
+        <div class="hamburger">
+            <script>
+                function myFunction() {
+                var x = document.getElementById("buger_links");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }}
+            </script>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <img src="imgs/logo.svg" alt="Brainstorm-studiebegeleiding logo">
+            </a>
+
+            <div id="buger_links">
+                <a href="index.html#about" >Over ons</a>
+                <a class ="active" href="offer.html#offer" >Ons aanbod</a>
+                <a href="contact.html#contact" >Contact & Locatie</a>
+            </div>
         </div>
     </div>
     
