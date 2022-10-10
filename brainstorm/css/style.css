@@ -47,7 +47,18 @@ body {
 /* ------------------------------------------------ */
 
 /* easter egg */
-/* font-family: "Wingdings", sans-serif; */
+#navbar_logo #angry {
+    display: none;
+}
+#navbar_logo:active>#normal{
+	display: none;
+}
+#navbar_logo:active>#angry{
+	display: inline-block;
+}
+/* #navbar_logo:active ~ #navbar_extra{
+	font-family: 'Wingdings';
+} */
 
 /* ------------------------------------------------ */
 /* navigation bar styling */
@@ -124,8 +135,7 @@ hamburger menu only visible on mobile */
     }
     .mobile_nav #mobile_brainstorm {
         color: rgb(0, 0, 0);
-        font-family: 'Comic Sans MS';
-        margin-top: 0.2rem;
+        margin-top: 0.35rem;
         padding-left: 10px;
         text-decoration: none;
         font-size: 450%;
@@ -346,6 +356,7 @@ iframe {
 #footer p {
     padding: 36px;
     text-align: center;
+    font-size: 120%;
 }
 #footer a {
     text-decoration: none;
