@@ -111,7 +111,7 @@ hamburger menu only visible on mobile */
     }
     .mobile_nav img {
         float: right;
-        width: 250px;
+        width: 260px;
     }
 
     .hamburger #buger_links {
@@ -131,7 +131,7 @@ hamburger menu only visible on mobile */
         color: rgb(0, 0, 0);
         padding: 10px 10px;
         text-decoration: none;
-        font-size: 350%;
+        font-size: 400%;
         display: block;
         z-index: 9999;
     }
@@ -141,13 +141,15 @@ hamburger menu only visible on mobile */
         right: 0;
         top: 0;
     }
+    .hamburger a.icon:active {
+        background: none;
+    }
+    .hamburger #buger_links a {
+        line-height: 120%;
+    }
     .hamburger #buger_links a:hover {
         background: rgba(60, 60, 60, 0.3);
     }
-    .hamburger #buger_links a:active {
-        background: none;
-    }
-
 }
 
 /* ------------------------------------------------ */
