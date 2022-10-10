@@ -141,12 +141,10 @@ hamburger menu only visible on mobile */
         position: fixed;
         right: 0;
         top: 0;
-    }
-    .hamburger a.icon:active {
-        background: none;
+        -webkit-tap-highlight-color: transparent;
     }
     .hamburger #buger_links a {
-        line-height: 120%;
+        line-height: 150%;
     }
     .hamburger #buger_links a:hover {
         background: rgba(60, 60, 60, 0.3);
@@ -260,13 +258,12 @@ h3 {
 }
 address a{
     text-decoration: none;
-    font-size: 1.4rem;
 }
 address p {
-    font-size: 1.5rem;
     display: inline-block;
     width: 90%;
     vertical-align: middle;
+    font-size: 150% !important;
 }
 ul {
     font-size: 1.2rem;
