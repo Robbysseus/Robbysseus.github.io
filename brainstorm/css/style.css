@@ -125,7 +125,7 @@ hamburger menu only visible on mobile */
     .mobile_nav #mobile_brainstorm {
         color: rgb(0, 0, 0);
         font-family: 'Comic Sans MS';
-        margin-top: 0rem;
+        margin-top: 0.2rem;
         padding-left: 10px;
         text-decoration: none;
         font-size: 450%;
@@ -296,7 +296,8 @@ address p {
     text-align: left !important;
     display: inline-block;
     vertical-align: middle;
-    font-size: 1.8em !important;
+    font-size: 2.2em !important;
+    font-weight: 500;
     line-height: 115%;
 }
 ul {
