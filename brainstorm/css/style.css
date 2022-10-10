@@ -81,6 +81,7 @@ body {
     text-decoration: none;
     font-weight: 550;
     font-size: 185%;
+    transition: .5s background-color;
 }
 #top_left_brainstorm {
     font-family: 'Comic Sans MS';
