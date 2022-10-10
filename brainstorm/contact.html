@@ -6,7 +6,7 @@
 <head>
     <meta charset = "UTF-8">
     <title>Brainstorm</title>
-    <link rel="icon" type="image/png" href="imgs/icon.png">
+    <link rel="icon" type="image/svg" href="imgs/icon.svg">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
@@ -32,7 +32,7 @@
         </div>
         <!-- brainstorm logo in navigation bar -->
         <a href="index.html" id="navbar_logo">
-            <img src="imgs/logo.svg" alt="Brainstorm-studiebegeleiding logo">
+            <img src="imgs/logoR.svg" alt="Brainstorm-studiebegeleiding logo">
         </a>
     </div>
 
@@ -48,11 +48,25 @@
                     x.style.display = "none";
                 } else {
                     x.style.display = "block";
-                }}
+                }
+                var y = document.getElementById("is_clicked");
+                if (y.style.display === "block") {
+                    y.style.display = "none";
+                } else {
+                    y.style.display = "block";
+                }
+                var y = document.getElementById("non_clicked");
+                if (y.style.display === "none") {
+                    y.style.display = "block";
+                } else {
+                    y.style.display = "none";
+                }
+            }
             </script>
 
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <img src="imgs/logo.svg" alt="Brainstorm-studiebegeleiding logo">
+                <img id=non_clicked src="imgs/logoL.svg" alt="Brainstorm-studiebegeleiding logo">
+                <img id=is_clicked src="imgs/logoB.svg" alt="Brainstorm-studiebegeleiding logo">
             </a>
 
             <div id="buger_links">

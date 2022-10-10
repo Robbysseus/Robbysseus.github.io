@@ -52,10 +52,14 @@ body {
 #navbar_logo {
     position: relative;
     float: right;
-    width: 170px;
+    width: 172px;
     margin: 1px 15px 0px 0px;
     padding: 0px;
 }
+#navbar_logo img {
+    width: 100%;
+}
+
 #navbar_extra a:hover {
     background: rgba(60, 60, 60, 0.3);
 }
@@ -94,21 +98,28 @@ hamburger menu only visible on mobile */
     .mobile_nav #mobile_brainstorm {
         color: rgb(0, 0, 0);
         font-family: 'Comic Sans MS';
-        padding: 10px;
+        padding: 20px 10px 10px 10px;
         text-decoration: none;
         font-size: 400%;
         font-weight: 700;
+    }
+    #non_clicked {
+        display: inline-block;
+    }
+    #is_clicked {
+        display: none;
     }
     .mobile_nav img {
         float: right;
         width: 250px;
     }
+
     .hamburger #buger_links {
         display: none;
         position: fixed;
         text-align: right;
         font-weight: 550;
-        width: 60%;
+        width: 70%;
         right: 0px;
         top: 120px;
         background-color: rgb(210, 210, 210);
@@ -133,6 +144,9 @@ hamburger menu only visible on mobile */
     .hamburger #buger_links a:hover {
         background: rgba(60, 60, 60, 0.3);
     }
+    .hamburger #buger_links a:active {
+        background: none;
+    }
 
 }
 
@@ -155,19 +169,19 @@ header {
     font-variant: small-caps;
 }
 #header_text_1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     border-radius: 0px 8px 8px 0px;
     float: left;
     position: relative;
-    top: 2em;
+    top: 1.5em;
 }
 #header_text_2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     text-align: right;
     border-radius: 8px 0px 0px 8px;
     float: right;
     position: relative;
-    top: 12em;
+    top: 11em;
 }
 
 /* ------------------------------------------------ */
@@ -202,8 +216,8 @@ main {
     for regular and mobile site */
 .anchor{
     display: block;
-    height: 60px;
-    margin-top: -60px;
+    height: 70px;
+    margin-top: -70px;
     visibility: hidden;
 }
 @media only screen and (max-width: 1250px) {
