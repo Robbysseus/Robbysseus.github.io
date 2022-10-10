@@ -98,11 +98,11 @@ hamburger menu only visible on mobile */
     .mobile_nav #mobile_brainstorm {
         color: rgb(0, 0, 0);
         font-family: 'Comic Sans MS';
-        padding: 10px;
+        margin-top: 0rem;
+        padding-left: 10px;
         text-decoration: none;
         font-size: 400%;
         font-weight: 700;
-        margin-top: 0rem;
     }
     #non_clicked {
         display: inline-block;
@@ -145,7 +145,7 @@ hamburger menu only visible on mobile */
     }
     .hamburger #buger_links a {
         line-height: 150%;
-        padding-right: 10px;
+        padding-right: 20px;
     }
     .hamburger #buger_links a:hover {
         background: rgba(60, 60, 60, 0.3);
@@ -262,9 +262,9 @@ address a{
 }
 address p {
     display: inline-block;
-    width: 90%;
+    width: 92%;
     vertical-align: middle;
-    font-size: 150% !important;
+    font-size: 210% !important;
 }
 ul {
     font-size: 1.2rem;
@@ -310,7 +310,7 @@ iframe {
     background-color: rgb(221, 221, 221);
 }
 #footer p {
-    padding: 20px;
+    padding: 36px;
     text-align: center;
 }
 #footer a {
