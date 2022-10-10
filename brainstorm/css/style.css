@@ -145,6 +145,7 @@ hamburger menu only visible on mobile */
     }
     .hamburger #buger_links a {
         line-height: 150%;
+        padding-right: 10px;
     }
     .hamburger #buger_links a:hover {
         background: rgba(60, 60, 60, 0.3);
