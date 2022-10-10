@@ -96,6 +96,8 @@ hamburger menu only visible on mobile */
         box-shadow: 0px 9.8px rgb(0, 0, 0);
     }
     .mobile_nav #mobile_brainstorm {
+        position: relative;
+        top: 10px;
         color: rgb(0, 0, 0);
         font-family: 'Comic Sans MS';
         margin-top: 0rem;
@@ -257,14 +259,20 @@ h3 {
     font-size: 1.2rem;
     padding: 0.5rem;
 }
-address a{
+.address_item {
+    display: inline-block;
+}
+.address_item span {
+    margin-right: 1.5rem;
+}
+address a {
     text-decoration: none;
 }
 address p {
+    text-align: left !important;
     display: inline-block;
-    width: 92%;
     vertical-align: middle;
-    font-size: 210% !important;
+    font-size: 200% !important;
 }
 ul {
     font-size: 1.2rem;
