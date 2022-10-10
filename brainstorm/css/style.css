@@ -243,8 +243,7 @@ main {
     padding: 4px 16px 4px 16px;
     border-radius: 5px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-    line-height: 140%;
-    font-size: large;
+    line-height: 160%;
 }
 @media only screen and (min-width: 1400px) {
     .text_section {
@@ -295,7 +294,7 @@ h3 {
     line-height: 120%;
 }
 .text_section p {
-    font-size: 1.2rem;
+    font-size: 1.5em;
     padding: 0.5rem;
 }
 address a {
@@ -310,7 +309,7 @@ address p {
     line-height: 115%;
 }
 ul {
-    font-size: 1.2rem;
+    font-size: 1.5em;
     line-height: 150%;
     margin-bottom: 1rem;
 }
