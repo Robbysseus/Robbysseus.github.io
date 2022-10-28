@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Git, GitHub &amp; the HPC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23bcbde0-c1f4-4390-b855-4c76d1f27247" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogos-download.com%2Fwp-content%2Fuploads%2F2016%2F09%2FGitHub_logo.png&amp;f=1&amp;nofb=1&amp;ipt=c48b25e572b3aa5818efbbe4bb0cbf8c32467df355b37d577411e0584dd952ab&amp;ipo=images"/></div><h1 class="page-title">Git, GitHub &amp; the HPC</h1></header><div class="page-body"><figure id="c26ab865-f590-47b4-8457-7ef14be083a9" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled.png"><img style="width:3508px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled.png"/></a></figure><nav id="263a9056-9b79-4c1c-bca5-71c7dcdc9a40" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#72bc0dcd-d424-4619-9526-39d53dcabbbb">Git &amp; GitHub</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a020071a-549d-42dd-866e-1f7283c5e78e">What is Git </a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2a1d76e3-fc8a-4a3d-8a79-cac15db3b178"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Git</mark></span></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b791b654-f644-4713-ab59-e444e9f30484"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">GitHub</mark></span></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ea05df32-88bc-49bc-8ad0-125d79e7b86e">Git history: commits</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#512f8b76-c0bf-48da-8a7b-3b3836950aac">Git workflow</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#27b57cc8-291c-4e95-a5f7-cd1f854ce274"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Create, commit and push new files</mark></span></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f450c3ec-e2e8-46bb-bb9b-5973adebdcad"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Making changes to your repository on GitHub</mark></span></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#27de9363-820b-494d-881a-9df4e8541c01"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Pull from GitHub</mark></span></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#39c92c41-3a7b-4c9e-9e32-2c01c9f91c15">Branches</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#ff1348ab-f97f-4c45-b05e-81f7b2e7256d"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Merging conflicts</mark></span></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#074ab131-e0ba-47b2-b992-a8cde8e6d5e3">UGent High-performance Computer (HPC)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#79ebd4f1-0f6c-470d-b97b-b4f990b5e0a1">Connecting</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a586be05-497b-40ee-81ff-095a3e815be4">Uploading</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ef6bc689-ae70-4506-ad59-cdb0ff3e74a1">Submitting jobs</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fed94f44-c79e-445e-a873-85a163736064"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">.pbs files</mark></span></a></div></nav><h1 id="72bc0dcd-d424-4619-9526-39d53dcabbbb" class="block-color-teal_background">Git &amp; GitHub</h1><ul id="46b05cb9-38c6-4448-84b4-9b9e372e2e97" class="bulleted-list"><li style="list-style-type:disc">This is a nice tutorial / game to get acquainted with all the Git &amp; GitHub commands
+(look inside the releases tab to download it)<p id="cbb42b6e-d195-43eb-ab05-8a934fbe0423" class=""><a href="https://github.com/jlord/git-it-electron">https://github.com/jlord/git-it-electron</a></p></li></ul><p id="9f437a63-897a-48a2-a404-fda62d9af717" class="">
+</p><ul id="04701e13-24ac-4f4a-b201-eeb08772329f" class="bulleted-list"><li style="list-style-type:disc">This is a video tutorial explaining how to use Git &amp; GitHub inside the VSCode IDE
+(useful when working on the repository on your local device)<p id="68936ba4-f4e5-43b9-959f-6dba6362c42e" class=""><a href="https://youtu.be/i_23KUAEtUM">https://youtu.be/i_23KUAEtUM</a></p></li></ul><h2 id="a020071a-549d-42dd-866e-1f7283c5e78e" class="block-color-orange_background">What is Git </h2><p id="ccf98cdb-e5e7-4991-bf66-e9a8c9e29db0" class="">Open source &amp; free source control management (= SCM)</p><p id="8e51672a-a2c0-4538-811b-131fcf6ba159" class="">⇒ version control for program code </p><ul id="2ca6a2d8-6aaf-4c6b-98fe-a985ac18f755" class="bulleted-list"><li style="list-style-type:disc">archive of all previous versions &amp; changes of your code</li></ul><ul id="a16fd9b2-b294-4f22-9f62-b291e6798c95" class="bulleted-list"><li style="list-style-type:disc">all changes are linked to the author of the code</li></ul><ul id="53d5a26b-8d7e-4601-9fd5-66b19a259613" class="bulleted-list"><li style="list-style-type:disc">everything is encrypted</li></ul><ul id="50dc8d0d-d9b9-4956-98aa-c0000c879eb9" class="bulleted-list"><li style="list-style-type:disc">many people can work on the same code</li></ul><h3 id="2a1d76e3-fc8a-4a3d-8a79-cac15db3b178" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Git</mark></span></h3><p id="9a3d2463-1808-40cb-b6f7-4162fbe29007" class="">This is the actual version control system</p><p id="5a9068ec-fd42-4b80-a262-5d3f1b6052d8" class="">You can use it locally in the CLI (command line interface), a GUI, or right inside your IDE</p><h3 id="b791b654-f644-4713-ab59-e444e9f30484" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">GitHub</mark></span></h3><p id="b7d5168b-e194-4f0a-bbc2-c96973488b12" class="">This is the server/website used to store your code, track issues, develop code in groups, …</p><div id="e522853c-0606-4b99-8d05-7d7f82b978bf" class="column-list"><div id="e49d9f65-b048-4181-a79e-9f3a3aab12d9" style="width:50%" class="column"><p id="c5cdfabb-9dc6-4569-b963-b7dd7e207bfd" class="">Uses markdown (.md) files to provide information about repositories</p><p id="1fd4f266-91a8-4642-925a-199427b88da7" class="">
+</p><p id="2ac26df7-b33f-42a2-abba-3ae3f1804b1d" class="">e.g. the README.md files but also the wiki pages</p></div><div id="5e28b22a-4c56-492c-9f6b-2f7639567bb6" style="width:50%" class="column"><figure id="31d1bd0d-15fa-4dca-b2c7-c3909e58b1b0" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%201.png"><img style="width:1276px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%201.png"/></a></figure></div></div><figure id="2d312b46-d5f1-4f3e-a3ea-fde9fe911a36" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%202.png"><img style="width:1262px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%202.png"/></a></figure><figure id="f824b108-5d4e-4464-80d5-28c854850982" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%203.png"><img style="width:934px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%203.png"/></a></figure><h2 id="ea05df32-88bc-49bc-8ad0-125d79e7b86e" class="block-color-orange_background">Git history: commits</h2><div id="2542a348-3e7b-4502-98c2-66dafc9de531" class="column-list"><div id="957d6c21-09bd-4c3b-ad51-d213de5a94d7" style="width:50%" class="column"><p id="5433d259-22a5-4d38-a639-333aef0be3ea" class="">The history forms a chain of snapshots (commits) of your code.</p><p id="3339615e-e5e2-44ab-9ed6-7f57b551bdc4" class="">
+</p><p id="74ee81e8-ffa2-417d-b925-5c00c6a1e052" class="">Every commit contains a hash function that links it to the chain cryptographically securing the whole history</p></div><div id="18d622df-8287-4154-8552-aca948221946" style="width:50%" class="column"><figure id="d93c9b3f-ee84-40bd-b077-dabe7fd9ed7c" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%204.png"><img style="width:1362px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%204.png"/></a></figure></div></div><p id="253b38dd-95b2-491c-98d0-e5395e327e57" class="">With the <code>git log (--oneline or -p)</code> command you can actually view all these changes through time - with the hash function, messages, and the author (regular, short, or long version)
+(here 2 commits were performed)</p><figure id="d2f40ca2-8d0a-410a-aa21-54ab66ae06a8" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%205.png"><img style="width:760px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%205.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2f0bbe5b-fe0a-4514-9b46-64ef28c675ac"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">You can create code references for your issues <figure id="44980483-a39b-4dd6-bddb-733beb3483b6" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%206.png"><img style="width:1373px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%206.png"/></a></figure></div></figure><h2 id="512f8b76-c0bf-48da-8a7b-3b3836950aac" class="block-color-orange_background">Git workflow</h2><figure id="9049c21b-07bb-48fe-bc86-111c0b717538" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%207.png"><img style="width:1447px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%207.png"/></a></figure><p id="bef77727-adbb-4566-8d18-3e40754e8b02" class="">
+</p><h3 id="27b57cc8-291c-4e95-a5f7-cd1f854ce274" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Create, commit and push new files</mark></span></h3><p id="40b64fe5-f20c-45d4-bf9d-f2da31100d0a" class="">You can always view the state of your file with the <code>git status</code> command</p><p id="9f5cf425-dab6-49cf-b81d-b45e22206946" class="">
+</p><ol type="1" id="1ee11aad-6aad-4487-8d39-3f613a4fdf41" class="numbered-list" start="1"><li><strong>Create or alter a file locally</strong><p id="50f39d9c-8609-456f-8b8e-8e4bc392b06f" class="">Use git init to initiate git inside your current working directory</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="facc0703-5879-49c4-8310-07bb169c80cb"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Modified state</strong><p id="e7c92885-8003-4a6e-b0df-fecacb10feb8" class="">= when some changes have been made to a file, which are not yet saved</p><p id="d319b466-7bf9-4d68-804b-089682d9c67f" class="">⇒ the state of file has been altered from its previous state in the committed state</p></div></figure><figure id="eecc9e56-2fb9-4361-b631-ab2d8a558d14" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%208.png"><img style="width:845px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%208.png"/></a><figcaption>Right now, none of the files in our directory are being ‘tracked’</figcaption></figure></li></ol><p id="bc9e1854-1c1a-4825-bac0-d9021f07fccd" class="">
+</p><ol type="1" id="216021f2-92b5-4b8c-8098-bd226cbdd95c" class="numbered-list" start="2"><li><strong><code>git add &lt;file&gt;</code></strong><strong> to add the file to the staging area</strong> 
+(or use <code>add .</code> or <code>add --all</code> or <code>add -A</code> to add all the files in the working directory)<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="740ed54c-1c77-4654-a232-f52d0443ad30"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Staged state</strong><p id="5d0d356e-78e9-4a33-b10d-fb6a9f85d283" class="">= a file that is ready to be committed, all necessary changes have been made</p><p id="6c6c32b1-c4b7-4326-9d01-da50e57849b2" class="">⇒ this command doesn’t return anything but you can always view the status of your files with the <code>git status</code> command</p></div></figure><figure id="b9de3300-9c13-4f27-9ab2-4a09dee63067" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%209.png"><img style="width:715px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%209.png"/></a></figure></li></ol><div id="ad310a0b-7d30-482c-abb3-2be4041d29fa" class="column-list"><div id="f2a14c2b-48b5-4ca3-9305-27b5a9f8430f" style="width:50%" class="column"><p id="f73cc388-16e1-4011-b6bb-6ac70ab3a761" class=""><div class="indented"><p id="7091774e-6d77-4a0a-9f8d-d6480c40def0" class=""><strong>Optionally: make git ignore certain files</strong> in the directory 
+(e.g. sensitive data)</p><p id="34014c6a-f479-424c-aa88-5138de697b72" class="">→ create <code>.gitignore</code> file</p><p id="a0a38fc2-881a-497a-a45d-465dda1e5beb" class="">→ specify which or what type of files you wish to ignore</p><p id="5d5f49f4-4b25-4ed4-9089-e5976f944947" class="">
+</p><p id="1373d255-9bdf-4d17-ae3f-811ab1150eaa" class=""><code>*.txt</code> will make sure are .txt files are ignored</p><p id="d110ddf1-307f-4c27-93e9-921ead3f2299" class="">
+</p><p id="e58441db-b829-4f6d-b386-cf489feb320d" class=""><a href="https://github.com/github/gitignore">List of ways to ignore files</a></p></div></p></div><div id="ce30e659-7b34-435b-a318-dcc38f7bb2b4" style="width:50%" class="column"><figure id="ea3556e9-ed25-4ef9-9100-419019ee63be" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2010.png"><img style="width:276px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2010.png"/></a></figure></div></div><div id="e6c2fa34-4bc9-4384-8e2a-3fd68ecf093f" class="column-list"><div id="3e53e40c-06db-45ed-8ee5-a78e07277b5a" style="width:31.25%" class="column"><p id="1f1f7a6d-aa2a-4e6b-af12-80176085c138" class=""><div class="indented"><p id="9b4edc26-26e3-4aed-a761-3a9ffff5eb03" class="">Now .txt files no longer show up when you ask for the git status</p></div></p></div><div id="14afb9c5-0b51-44d9-bcaf-27a6e18a25eb" style="width:68.75%" class="column"><figure id="5649d625-3402-474b-87aa-82575a97b685" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2011.png"><img style="width:714px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2011.png"/></a></figure></div></div><p id="8703f7e7-4cbb-4bac-bf9e-4e0bc0d484cd" class="">
+</p><ol type="1" id="573cba8a-65ee-45ee-b5bf-47420b259f77" class="numbered-list" start="3"><li><strong><code>git commit</code></strong><strong> to take a snapshot (commit) of all the files in the staging area </strong>and add the commit to the local repository<p id="815fad5f-75c3-4a88-a591-eebb02d57a99" class="">⇒ these files are now officially part of the git record</p><p id="7ea86f05-b465-479f-85cf-6bccb2b1da4b" class="">If you commit, you have created a ‘version’ of your code that can be altered from that point, compared against, or jumped to at any time</p><ul id="09f44416-da57-4fc6-8620-3feb30500df7" class="bulleted-list"><li style="list-style-type:disc">You can add a message to this commit with the argument -m followed by a string with your message</li></ul><ul id="4340af3c-d92a-4831-b37f-de2d18d541d9" class="bulleted-list"><li style="list-style-type:disc">You can also use <code>git commit -a -m &quot;your message&quot;</code> to skip the staging step and go straight to committing your file</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="67a2a271-2a5c-44c4-b93d-12efaac02a32"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Committed state</strong><p id="759c5cf9-ae2a-492a-8276-2f999871fad6" class="">= a file is committed when all the changes made to the file have been saved in the local repo</p><p id="2839fd6e-26b0-4db0-a272-f3d391fe5ca0" class="">⇒ ready to be pushed to the remote repo (on GitHub)</p></div></figure><figure id="7e76f0ce-78d8-4cf7-bc36-46631bd23512" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2012.png"><img style="width:916px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2012.png"/></a></figure></li></ol><div id="33dbd5a4-70db-4f45-b9cd-bcfdc2cc904a" class="column-list"><div id="b5424f35-5b30-4334-8aae-f06cf75fce8f" style="width:56.25%" class="column"><figure id="a46dc616-24bd-440b-a9fc-d9ae4b932538" class="image" style="text-align:right"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2013.png"><img style="width:336px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2013.png"/></a></figure></div><div id="5284e954-5efc-455d-b74d-053dd8345cd9" style="width:43.75000000000002%" class="column"><p id="7fb7df8f-9e7a-4977-a4af-1350e5f8fb5b" class="">When you make changes to your committed repository, git will recognize that some of your files have been modified</p></div></div><div id="89ddd2ed-5330-4d65-ac0d-2375f6ae871d" class="column-list"><div id="bbcfc6a2-9601-4f16-a791-dfdb094b8081" style="width:56.25%" class="column"><figure id="e7154148-1e3a-4f3f-be7d-442845c7ad78" class="image" style="text-align:right"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2014.png"><img style="width:336px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2014.png"/></a></figure></div><div id="0b3238cf-c9a0-46da-951f-93867bea198f" style="width:43.75%" class="column"><p id="7282fe5b-15ac-4fd2-ba0d-b7bb6cba7943" class=""><code>git diff</code> lets you view what changes have been made</p></div></div><p id="e332761a-367c-4b99-9dcd-6b8e383d2bae" class=""><div class="indented"><p id="1750fe34-c4c7-46a1-aa8b-522f9649ca71" class="">Now you can once again <code>add</code> to stage &amp; <code>commit</code> to repository or …</p><ul id="9383586a-80d5-4d89-95dc-8362de39f90e" class="bulleted-list"><li style="list-style-type:disc"><code>restore --staged &lt;file&gt;</code> to clear staged files</li></ul><ul id="81a1996d-820e-44a9-b9c3-d43250672e1c" class="bulleted-list"><li style="list-style-type:disc"><code>restore &lt;file&gt;</code> to go back to previous a previous commit 
+(this even works for deleted files)</li></ul><ul id="e7c9f5e8-f930-4d09-9e21-64e2a0bb6678" class="bulleted-list"><li style="list-style-type:disc"><code>reset &lt;hash tag&gt;</code> to restore to an older commit 
+(view hash with <code>log --oneline</code>)</li></ul></div></p><p id="d109a462-f6c6-47cb-8409-f86efbf35eff" class="">
+</p><p id="4c010ec1-41f4-41e9-bae9-b18ab578f9d0" class="">
+</p><ol type="1" id="3d3d10d5-bc8a-42a0-ba8e-dd8baece96cc" class="numbered-list" start="4"><li><strong>Push the repository to GitHub</strong><p id="c1f415b7-710f-4dba-8a97-4f1adca3e02b" class=""><code>git remote add origin &lt;link&gt;
+</code> → creates a connection between your local repo and the remote repo on GitHub (the connection is called origin)</p><p id="047fc7f6-ac85-4f87-9c47-1a9aef477692" class="">
+</p><p id="9c1b4c3f-3003-4d27-a749-a3c21c64a39e" class=""><code>git branch -M main</code>
+ → changes your target branch’s name to ‘main’</p><p id="eb6c2b94-619c-4006-a66f-4a74e6ccb456" class="">
+</p><p id="8ec97380-0a5e-494d-9880-2bb9bda14759" class=""><code>git push -u origin main</code>
+ → pushes your repository from your local device to GitHub<div class="indented"><p id="a12c2b7c-4e40-4601-b87d-2581df688248" class=""><code>git push--all</code> to push through all your branches</p></div></p><figure id="a607ba17-27cc-4931-80e2-db50bf6215f3" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2015.png"><img style="width:738px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2015.png"/></a></figure><p id="cb293932-70df-4019-a75c-44b77edf0905" class="">Inside GitHub, you can add and edit files…</p></li></ol><h3 id="f450c3ec-e2e8-46bb-bb9b-5973adebdcad" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Making changes to your repository on GitHub</mark></span></h3><figure id="bdb8feae-d39d-4064-b624-538b40bd7ccb" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2016.png"><img style="width:918px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2016.png"/></a></figure><div id="25cf04d2-ed34-4bbc-b9ee-121c06808b6b" class="column-list"><div id="e1ec32a5-170e-4171-9751-318f1eeab3d9" style="width:50%" class="column"><p id="6d73119a-56e8-4839-ad5f-8735eb8d7c0a" class="">When making changes, you can choose to create a new branch and start a <strong>pull request</strong></p><p id="ad8fd756-a5ca-4930-92be-e153d55af205" class="">⇒ request to merge this to the main branch</p><p id="401f0e2e-8744-4809-bfd6-6983b79fa80d" class="">
+</p></div><div id="53fe03e8-818a-4418-8717-b5c3f6be157c" style="width:50%" class="column"><figure id="add11e9c-01c9-45e5-b6dd-a213f1f1489e" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2017.png"><img style="width:747px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2017.png"/></a></figure></div></div><p id="3afe11e6-07c6-475c-a3b6-b78cc275279d" class="">From here you can discuss the pull request, link it to certain issues or milestones, …</p><figure id="0182046c-6210-4a60-9a48-85107a7d747a" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2018.png"><img style="width:1248px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2018.png"/></a></figure><p id="d9e1b3d3-e2e1-485a-b202-d7c1a7ad6481" class="">If all is well &amp; there are no conflicts, you can merge the request to the main branch and close all corresponding issues</p><p id="28f3487a-900d-4df6-8d1e-374b9eb70c0c" class="">There are many more repository options including wiki, insights, and release</p><h3 id="27de9363-820b-494d-881a-9df4e8541c01" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Pull from GitHub</mark></span></h3><p id="37fed52b-cbfc-455c-b87a-eef0cbcde75b" class=""><strong>For this you have two options:</strong></p><div id="14bc4ec5-6db0-408a-9baa-4ca86cb76d6e" class="column-list"><div id="0e2057e9-7612-4853-bc96-abefd8532c63" style="width:43.75%" class="column"><p id="bde69f3b-dfe0-4fb3-994c-b384762a6185" class=""><code>git fetch</code> 
+→ download all the history from the remote tracking branches</p><p id="86c47368-a14f-4cee-9672-82c98df8e10c" class=""><code>git merge</code> 
+→ merge this fetch with your local branch</p></div><div id="c2a7967f-c9ee-4845-9202-d92816d0bd86" style="width:56.25%" class="column"><figure id="5739d42a-b96c-40a4-8022-64eb2d818524" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2019.png"><img style="width:597px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2019.png"/></a></figure></div></div><p id="c479ba56-aad9-47f7-9478-8a711c628e04" class="">
+</p><p id="607238f4-1e62-43a2-98c5-8f4f1e660d7f" class=""><code>git pull</code> combines both of these commands</p><p id="ae86dbf1-b846-420c-9aed-033d378e077b" class="">
+</p><h2 id="39c92c41-3a7b-4c9e-9e32-2c01c9f91c15" class="block-color-orange_background">Branches</h2><div id="8f5286d0-d658-49c5-b63d-661380818e79" class="column-list"><div id="a2fac3b4-7549-4013-ad8c-660552202863" style="width:50%" class="column"><p id="1331302d-8024-4f23-a1a3-5b8a6e7a9a00" class="">These allow you to </p><ul id="5a0fe35e-2247-4b3a-a1f9-8a4cf428470d" class="bulleted-list"><li style="list-style-type:disc">develop older versions of your code</li></ul><ul id="e855ead1-e60f-4e3e-893f-0b189b01bb3d" class="bulleted-list"><li style="list-style-type:disc">develop new features off of the main branch (live version)<p id="576eb477-7f51-4c33-840b-868be68da04d" class="">⇒ stable vs. dev branches</p></li></ul><ul id="36cf2fca-6915-4722-814c-d82a26cd295f" class="bulleted-list"><li style="list-style-type:disc">you can merge branches or add features from one branch to another</li></ul></div><div id="8f32f0da-51b3-4a26-aab0-ef654a89b444" style="width:50%" class="column"><figure id="68ccb371-20a9-4dce-a33e-1efcb15e7ffb" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2020.png"><img style="width:1074px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2020.png"/></a></figure></div></div><figure id="f28f85d6-4967-4333-ae46-4fd6b9c98015" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2021.png"><img style="width:1175px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2021.png"/></a></figure><p id="c95a23bf-4840-4163-b9e7-10cc3f0311e9" class=""><strong>Use git branch </strong><strong><code>branchName</code></strong><strong> to create a new branch</strong> to which you can make changes<div class="indented"><ul id="c265880d-e9fc-4a3b-9ad3-c2fed23eb034" class="bulleted-list"><li style="list-style-type:disc"><code>git branch</code> → view all the branches<figure id="25a1e809-21ac-4cdc-8be7-28b2fe1ccae6" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2022.png"><img style="width:590px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2022.png"/></a></figure></li></ul><p id="fa60697d-084e-4807-8979-300e62a7845d" class="">
+</p><ul id="ab58c7ef-4cd0-42f1-9ae7-424547a669b7" class="bulleted-list"><li style="list-style-type:disc"><code>git switch branchName</code> → switch to another branch<figure id="736fdb6e-b9ac-4c63-9737-1feceae0ca5c" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2023.png"><img style="width:648px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2023.png"/></a></figure><p id="5e958461-5a3b-40b2-81cd-d55bfde07d76" class="">You can modify, stage and commit files to this current branch</p><p id="269650f7-2bf5-4e92-b0dd-cfb0183627c2" class="">Whatever you see in your file explorer reflects the current states of the active branch</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c6bbbd96-174f-4459-882c-9d76f9e3d97f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Or use <code>git switch -c branchName</code> to create and switch to a branch in one command<p id="25d5d291-50e0-4fa5-a48b-902df35259d8" class="">
+</p><p id="6b53c29b-b2fb-4dc1-9a80-16e91882fe38" class="">Or use <code>git checkout -b branchName</code> to do the same thing</p></div></figure></li></ul><p id="27d4eb01-aceb-4cbf-acab-f086b4940482" class="">
+</p><ul id="2596bd26-6fe3-4795-9875-da32daceb29f" class="bulleted-list"><li style="list-style-type:disc"><code>git merge -m &quot;message&quot; branchName</code> → merge multiple branches<figure id="83889af5-558e-414c-90a8-8acd20bf58a3" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2024.png"><img style="width:829px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2024.png"/></a></figure></li></ul><p id="9947a59c-7417-4ad6-a4d2-18f8162a3607" class="">
+</p><ul id="124865e3-4096-46a9-b438-922abd2f270c" class="bulleted-list"><li style="list-style-type:disc"><code>git branch -d branchName</code> → remove branch<figure id="e491ab3f-fbbe-4e16-a45f-2a65a5db7527" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2025.png"><img style="width:687px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2025.png"/></a></figure><p id="a98832f3-fe7d-49b0-bf32-fef25d18f666" class="">
+</p></li></ul></div></p><h3 id="ff1348ab-f97f-4c45-b05e-81f7b2e7256d" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">Merging conflicts</mark></span></h3><p id="474e9144-5602-41b8-b33e-d7be63975f69" class="">This branch merger went quite smooth, nothing was changed in main so there were no conflicts…</p><figure id="4ead75dc-13e0-464f-99bd-05fb25e33936" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2026.png"><img style="width:969px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2026.png"/></a></figure><p id="b5e80dfc-bc28-4424-8a37-49b87fdcfbcc" class="">
+</p><div id="2010bbfb-8797-40e1-b31a-1471cf297cbe" class="column-list"><div id="cba57469-7fa3-4a37-9cef-5fa7bc0d9eca" style="width:50%" class="column"><p id="02f35104-c12b-4150-ad4f-285f6a201a61" class="">When this happens, you get into a merger branch</p><p id="0639c7d6-dc37-4913-993d-715fe45368f8" class="">
+</p><p id="9ad6a3fb-1315-423c-848a-f684d2f009ae" class="">Git will actually show you, inside your files, where and what the conflict it</p><p id="f5f42e12-fdc8-4965-a92e-570b28cc518d" class="">→ HEAD indicates what is in main</p><p id="a7660795-a78d-4f84-8935-a8f906fbf16e" class="">→ fix conflicts and commit</p></div><div id="cd4aad9e-2575-406a-85e4-05915dc34d09" style="width:50%" class="column"><figure id="7d3623d1-79c2-4234-b207-664218cc3925" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2027.png"><img style="width:334px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2027.png"/></a></figure></div></div><figure id="b3db7024-42f1-484f-9d9f-721b7543a944" class="image"><a href="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2028.png"><img style="width:852px" src="Git,%20GitHub%20&amp;%20the%20HPC%2023bcbde0c1f44390b8554c76d1f27247/Untitled%2028.png"/></a></figure><h1 id="074ab131-e0ba-47b2-b992-a8cde8e6d5e3" class="block-color-teal_background">UGent High-performance Computer (HPC)</h1><p id="d9fda7fa-8630-461b-ab30-de322a56ab5b" class=""><a href="https://hpcugent.github.io/vsc_user_docs/pdf/intro-HPC-linux-gent.pdf">https://hpcugent.github.io/vsc_user_docs/pdf/intro-HPC-linux-gent.pdf</a></p><h2 id="79ebd4f1-0f6c-470d-b97b-b4f990b5e0a1" class="block-color-orange_background">Connecting</h2><p id="f74347fd-ca11-4fd8-9ebd-b71e3b6729ec" class="">To submit jobs to the HPC you need a ssh (secure shell) connection<div class="indented"><p id="71fc706e-fd10-469d-b35b-0df7ffba2443" class="">⇒ <code>ssh vsc45450@login.hpc.ugent.be</code></p><p id="754a608a-4e1a-4d36-b3d2-db2c67d324ea" class="">→You will be prompted to provide login details</p><p id="e5afc832-a5ce-4151-8112-680d1aaa3269" class="">→Automatically redirected to your personal folder</p></div></p><h2 id="a586be05-497b-40ee-81ff-095a3e815be4" class="block-color-orange_background">Uploading</h2><p id="b9ef5ea0-87bd-431a-b2bf-40cc72ef6cae" class="">Open FileZilla and create an SFTP connection<div class="indented"><p id="c06278d8-6efc-4a5a-81f3-f59a2cf8a6c2" class="">→Again, you will be prompted to provide login details</p><p id="fa551f0b-e504-47a1-8de5-2b87b0922d8a" class="">→Once connection is established, simply drag and drop files</p></div></p><h2 id="ef6bc689-ae70-4506-ad59-cdb0ff3e74a1" class="block-color-orange_background">Submitting jobs</h2><p id="9eb11087-fd95-4438-9a90-1ea0a977828e" class="">You can create job-files in the .pbs format</p><ul id="ceb03aab-e6f5-4893-9e77-50b0cad14a8d" class="bulleted-list"><li style="list-style-type:disc">Submit your jobs with <code>qsub</code></li></ul><ul id="e505468a-46e3-4db7-8dee-2673f7934779" class="bulleted-list"><li style="list-style-type:disc">View the status of your job with <code>qstat</code>
+⇒ Queued, Running, Completed, Failes</li></ul><p id="5750bc54-a1d7-43f6-a0f6-77c0e0762d5c" class="">
+</p><p id="0f3000fc-1931-4f50-a6ec-a6864a8e69de" class="">The HPC will return a <code>job_id</code> at the start of the run and output an error-file <code>file_name.pbs.e.job_id</code> which provides you with info</p><h3 id="fed94f44-c79e-445e-a873-85a163736064" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-yellow_background">.pbs files</mark></span></h3><p id="44f4dd9d-854f-4caf-9006-98e8d8873c35" class="">These always start with a <strong>shebang line</strong><div class="indented"><p id="1ccf63d0-e064-4a32-b2b5-f5bd611991d5" class="">⇒ indicates which interpreter should be used (e.g. bash)</p><p id="2212b94d-bab8-4078-84dc-227295f33e29" class="">
+</p></div></p><p id="ba942a81-efab-4d26-be16-a0767469cd96" class="">The following lines provide information to the server for your job</p><ul id="62dff918-460e-4a73-ae14-f4ab134ee9cc" class="bulleted-list"><li style="list-style-type:disc"><strong>nodes</strong>: how many nodes to use (default = 1)</li></ul><ul id="83e7c1c6-39c9-4dce-9607-70430c9d754a" class="bulleted-list"><li style="list-style-type:disc"><strong>ppn</strong>: processors per node (i.e. CPU cores)</li></ul><ul id="f05f347d-fa19-4ede-a98c-a8ba21df2937" class="bulleted-list"><li style="list-style-type:disc"><strong>walltime</strong>: the maximal runtime of your script</li></ul><ul id="479c77c3-f8d5-4493-b4e1-1c565b973b27" class="bulleted-list"><li style="list-style-type:disc"><strong>mem</strong>: memory per code (limited depending on which cluster you use)</li></ul><pre id="e56a0023-a322-46fb-8287-0099ded432e0" class="code"><code>#!/usr/bin/env bash
+
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=00:30:00
+#PBS -l mem=2gb
+
+echo &quot;hello world!&quot; # prints string
+cat Test.txt	      # concatenate: prints file(s) content</code></pre></div></article></body></html>
