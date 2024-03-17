@@ -84,7 +84,7 @@ body {
     transition: .5s background-color;
 }
 #top_left_brainstorm {
-    font-family: 'Comic Sans MS';
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
     margin-top: -0.2rem;
 }
 #navbar_logo {
@@ -256,7 +256,7 @@ main {
     for regular and mobile site */
 .anchor{
     display: block;
-    height: 70px;
+    height: 0px;
     margin-top: -70px;
     visibility: hidden;
 }
