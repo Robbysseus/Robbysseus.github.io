@@ -84,8 +84,8 @@ body {
     transition: .5s background-color;
 }
 #top_left_brainstorm {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
-    margin-top: -0.2rem;
+    font-family: "Comic Sans MS", "Comic Sans", "Open Sans", "HVD Comic Serif", "Poppins", sans-serif;
+    margin-top: 0rem;
 }
 #navbar_logo {
     position: relative;
