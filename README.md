@@ -2,7 +2,7 @@
 
 👋 Hi, I’m [@robsyc](https://github.com/robsyc), student Bioinformatics in Systems Biology @UGent Belgium  
 👀 I’m interested in biotechnology, machine learning, open-source development and VR/AR  
-🌱 I’m currently learning C, R and web design  
+🌱 I’m currently learning dynamic web apps (w/ Django), multi-branch neural networks and Rust
 
 My websites &lt;3
 
