@@ -1,17 +1,17 @@
 #logo {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 60%;
     transform: translate(-50%, -50%);
-    max-width: 680px;
-    width: 90%;
+    height: 70%;
+    max-width: 640px;
 }
 h1 {
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
-    margin-top: 1em;
+    margin-top: 0.5em;
     font-family: "Courier New", Courier, monospace;
-    color: dimgray;
+    color: rgb(50, 50, 50)
 }
 
 /**********************************************************************************************/
