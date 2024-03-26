@@ -1,0 +1,95 @@
+#logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 680px;
+    width: 90%;
+}
+h1 {
+    font-size: 4em;
+    text-align: center;
+    margin-top: 3em;
+    font-family: "Courier New", Courier, monospace;
+    color: dimgray;
+}
+
+/**********************************************************************************************/
+
+/* STARTING STATE */
+/* edges are covered */
+#edge_t1, #edge_t2r, #edge_t2l, #edge_t3, #edge_b1, #edge_b2, #edge_b3t, #edge_b3b, #edge_b4 {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;}
+/* nodes are sized to 0 */
+#node_t1, #node_t2r, #node_t2l, #node_t3, #node_b1, #node_b2, #node_b3, #node_b34 {r: 0;}
+/* letters are hidden */
+#black_f, #white_f, #m, #u, #r, #o, #f {opacity: 0;}
+/* cursor is located to the left*/
+#cursor {transform: translateX(-76%);}
+
+/* ANIMATIONS */
+/* nodes are expanded into existence */
+@keyframes expand_t1 {0% {r: 0;} 100% {r: 38;}}
+#node_t1 {animation: expand_t1 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 10.4s both;}
+@keyframes expand_b1 {0% {r: 0;} 100% {r: 38;}}
+#node_b1 {animation: expand_b1 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 10.4s both;}
+
+@keyframes expand_t2r {0% {r: 0;} 100% {r: 36;}}
+#node_t2r {animation: expand_t2r 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 11.3s both;}
+@keyframes expand_t2l {0% {r: 0;} 100% {r: 48;}}
+#node_t2l {animation: expand_t2l 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 11.3s both;}
+@keyframes expand_b2 {0% {r: 0;} 100% {r: 32;}}
+#node_b2 {animation: expand_b2 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 11.3s both;}
+
+@keyframes expand_t3 {0% {r: 0;} 100% {r: 26;}}
+#node_t3 {animation: expand_t3 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 12s both;}
+@keyframes expand_b3 {0% {r: 0;} 100% {r: 24;}}
+#node_b3 {animation: expand_b3 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 12s both;}
+@keyframes expand_b34 {0% {r: 0;} 100% {r: 24;}}
+#node_b34 {animation: expand_b34 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 12.2s both;}
+
+
+/* edges are drawn */
+@keyframes draw_edge {0% {stroke-dashoffset: 1000;} 100% {stroke-dashoffset: 0;}}
+#edge_t1, #edge_b1 {animation: draw_edge 4s cubic-bezier(0.390, 0.575, 0.565, 1.000) 10s both;}
+#edge_t2r, #edge_t2l, #edge_b2 {animation: draw_edge 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) 11s both;}
+#edge_t3, #edge_b3t, #edge_b3b {animation: draw_edge 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) 11.7s both;}
+#edge_b4 {animation: draw_edge 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 12.2s both;}
+
+/* letters are revealed in single step */
+@keyframes reveal_letter {0% {opacity: 0;} 100% {opacity: 1;}}
+@keyframes reveal_and_remove_letter {0% {opacity: 0;} 50% {opacity: 1;} 100% {opacity: 0;}}
+#m {animation: reveal_letter steps(1) 4.5s both;}
+#u {animation: reveal_letter steps(1) 5.25s both;}
+#r {animation: reveal_letter steps(1) 5.85s both;}
+#o {animation: reveal_letter steps(1) 6.24s both;}
+#black_f {animation: reveal_and_remove_letter steps(1) 2.4s 5.4s backwards;}
+#white_f {animation: reveal_and_remove_letter steps(1) 1.5s 7s backwards;}
+#f {animation: reveal_letter steps(1) 8.5s both;}
+
+/* the cursor blinks, jumps forward and blinks again */
+@keyframes cursor-blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes cursor-move-right {
+    0% {transform: translateX(-76%);}
+    30% {transform: translateX(-58%);}
+    55% {transform: translateX(-44.6%);}
+    75% {transform: translateX(-29.5%);}
+    88% {transform: translateX(-14%);}
+    100% {transform: translateX(0%);}
+}
+@keyframes cursor-correction {
+    0% {transform: translateX(0%);}
+    50% {transform: translateX(-14%);}
+    100% {transform: translateX(0%);}
+}
+#cursor {animation:
+    cursor-blink 1s steps(1) 0s forwards 4,
+    cursor-move-right 3s steps(1) 3.6s forwards,
+    cursor-correction 1.5s steps(1) 7s forwards,
+    cursor-blink 1s steps(1) 9s infinite;
+}
