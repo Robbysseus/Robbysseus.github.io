@@ -22,7 +22,7 @@ h1 {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;}
 /* nodes are sized to 0 */
-#node_t1, #node_t2r, #node_t2l, #node_t3, #node_b1, #node_b2, #node_b3, #node_b34 {r: 0;}
+/* #node_t1, #node_t2r, #node_t2l, #node_t3, #node_b1, #node_b2, #node_b3, #node_b34 {r: 0;} */
 /* letters are hidden */
 #black_f, #white_f, #m, #u, #r, #o, #f {opacity: 0;}
 /* cursor is located to the left*/
